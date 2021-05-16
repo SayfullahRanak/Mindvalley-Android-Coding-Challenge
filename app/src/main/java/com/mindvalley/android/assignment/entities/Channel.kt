@@ -1,6 +1,11 @@
-package com.mindvalley.android.assignment.model
+package com.mindvalley.android.assignment.entities
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Channel(
+    @PrimaryKey(autoGenerate = true)
     val coverAsset: CoverAsset,
     val iconAsset: IconAsset,
     val latestMedia: List<LatestMedia>,
