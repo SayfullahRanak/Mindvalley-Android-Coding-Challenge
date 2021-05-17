@@ -20,5 +20,100 @@
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
+    <style name="series_title">
+
+        <item name="android:textSize">17sp</item>
+
+        <item name="android:letterSpacing">
+            0.02
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+    </style>
+
+    <style name="episode_title">
+
+        <item name="android:textSize">
+            25sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.02
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+    </style>
+
+    <style name="series_header">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.01
+        </item>
+
+        <item name="android:textColor">
+            @color/whiteM
+        </item>
+
+    </style>
+
+    <style name="series_sub_header">
+
+        <item name="android:textSize">
+            16sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.01
+        </item>
+
+        <item name="android:textColor">
+            @color/greylighterM
+        </item>
+
+    </style>
+
+    <style name="new_episode_header">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.02
+        </item>
+
+        <item name="android:textColor">
+            @color/greylighterM
+        </item>
+
+    </style>
+
+    <style name="series_sub_title">
+
+        <item name="android:textSize">
+            13sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.08
+        </item>
+
+        <item name="android:textColor">
+            @color/greylighterM
+        </item>
+
+    </style>
+
+
 
 </resources>
