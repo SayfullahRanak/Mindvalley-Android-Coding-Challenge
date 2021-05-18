@@ -1,9 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-alpha04@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d8e1d4844b54c93983bc855bef452391/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d8e1d4844b54c93983bc855bef452391/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d8e1d4844b54c93983bc855bef452391/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d5874ee101b8cc6dec9f9705e9233127/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ca747a9b1f5fea295f8afa72e0bd76e9/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/80d8910afea90a51be206cd397e35cb1/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/074ca7223d9fd54644207daefff02cd9/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6efd3e59cb1b6f86aed95bbc80f2d4bf/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/30759d75c30c58b98a5eae9c35b8235c/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/08077db4cc9456ee6f9bcd3b7d2b38b2/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/08077db4cc9456ee6f9bcd3b7d2b38b2/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/08077db4cc9456ee6f9bcd3b7d2b38b2/jetified-lifecycle-runtime-ktx-2.3.0-alpha04/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

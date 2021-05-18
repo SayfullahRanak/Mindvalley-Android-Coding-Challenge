@@ -5,17 +5,21 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.mindvalley.android.assignment.entities.Channel
+import com.mindvalley.android.assignment.entities.Media
 import com.mindvalley.android.assignment.entities.RemoteKeys
 
-@Database(version = 1, entities = [RemoteKeys::class], exportSchema = false)
+@Database(version = 1, entities = [RemoteKeys::class, Channel::class,Media::class], exportSchema = false)
 @TypeConverters(Converter::class)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getRepoDao(): RemoteKeysDao
-//    abstract fun getCatModelDao() : CatModelDao
+    abstract fun getChannelDao() : ChannelsModelDao
+    abstract fun getNewEpisodeDao() : NewEpisodeModelDao
+
 
     companion object{
-        val CAT_DB = "mindvalley.db"
+        val CHANNEL_DB = "channel.db"
 
         @Volatile
         private var INSTANCE : AppDatabase? = null
@@ -25,7 +29,7 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
         private fun buildDataBase(context: Context) =
-            Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, CAT_DB)
+            Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, CHANNEL_DB)
                 .build()
         }
 }

@@ -1,9 +1,16 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.test:rules:1.4.0-alpha06@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0d424b1b9e4651339536f7cc8ee4f62d/rules-1.4.0-alpha06/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0d424b1b9e4651339536f7cc8ee4f62d/rules-1.4.0-alpha06/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0d424b1b9e4651339536f7cc8ee4f62d/rules-1.4.0-alpha06/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/363b28e4397a44091b9c58a7836f6afb/rules-1.4.0-alpha06/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ecd7735d1a920ef9850825feec69a452/rules-1.4.0-alpha06/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0878c2db89d3ff4d6886ae88dee35cc2/rules-1.4.0-alpha06/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8c5b99aec3d7865825e9db933937312e/rules-1.4.0-alpha06/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/3b9f577be129caa42ad1dfa91f00bf78/rules-1.4.0-alpha06/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b4665be93a659da8fbe43d2f946b99af/rules-1.4.0-alpha06/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/20ff2640c1d322a46976cfe9ecda9115/rules-1.4.0-alpha06/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/20ff2640c1d322a46976cfe9ecda9115/rules-1.4.0-alpha06/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/20ff2640c1d322a46976cfe9ecda9115/rules-1.4.0-alpha06/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/androidx.test/rules/1.4.0-alpha06/326d97acb2a9cf7cbff243e63d1d45fa354b8ec7/rules-1.4.0-alpha06-javadoc.jar!/" />

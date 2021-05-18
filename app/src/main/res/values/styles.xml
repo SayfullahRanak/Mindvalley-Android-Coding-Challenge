@@ -115,5 +115,22 @@
     </style>
 
 
+    <style name="channel_header">
+
+        <item name="android:textSize">
+            30sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.01
+        </item>
+
+        <item name="android:textColor">
+            #C1C1C1
+        </item>
+
+    </style>
+
+
 
 </resources>

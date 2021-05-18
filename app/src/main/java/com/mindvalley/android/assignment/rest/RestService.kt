@@ -1,5 +1,8 @@
 package com.sevenpeakssoftware.sayfullah.rest
 
+import com.mindvalley.android.assignment.entities.Categories
+import com.mindvalley.android.assignment.entities.Channels
+import com.mindvalley.android.assignment.entities.NewEpisodes
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -9,6 +12,20 @@ import retrofit2.http.GET
 
 interface RestService {
 
-    @GET("application/")
-     suspend fun getCars(): Response<Any>
+
+
+    @GET("raw/A0CgArX3")
+    suspend fun getCategories(): Response<Categories>
+
+
+    @GET("raw/z5AExTtw")
+    suspend fun getNewEpisodes(): Response<NewEpisodes>
+
+
+    @GET("raw/z5AExTtw")
+    suspend fun getChannels(): Response<Channels>
+
+
+
+
 }
