@@ -5,15 +5,14 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.mindvalley.android.assignment.entities.Category
 import com.mindvalley.android.assignment.entities.Channel
 import com.mindvalley.android.assignment.entities.Media
-import com.mindvalley.android.assignment.entities.RemoteKeys
 
-@Database(version = 1, entities = [RemoteKeys::class, Channel::class,Media::class], exportSchema = false)
+@Database(version = 1, entities = [ Channel::class,Media::class, Category::class], exportSchema = false)
 @TypeConverters(Converter::class)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun getRepoDao(): RemoteKeysDao
     abstract fun getChannelDao() : ChannelsModelDao
     abstract fun getNewEpisodeDao() : NewEpisodeModelDao
 

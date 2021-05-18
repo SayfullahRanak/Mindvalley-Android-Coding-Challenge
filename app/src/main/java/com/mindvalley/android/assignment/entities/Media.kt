@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class Media(
     @PrimaryKey(autoGenerate = true)
-    val channel: Channel,
+    val id : Long,
+    val channel: ChannelMedia,
     val coverAsset: CoverAsset,
     val title: String,
     val type: String

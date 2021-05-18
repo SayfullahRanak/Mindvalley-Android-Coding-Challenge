@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Channel(
     @PrimaryKey(autoGenerate = true)
+    val id : Long,
     val coverAsset: CoverAsset,
     val iconAsset: IconAsset,
     val latestMedia: List<LatestMedia>,
