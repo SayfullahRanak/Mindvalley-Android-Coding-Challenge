@@ -96,6 +96,10 @@
             @color/greylighterM
         </item>
 
+        <item name="android:textAlignment">
+            textStart
+        </item>
+
     </style>
 
     <style name="series_sub_title">
@@ -111,7 +115,6 @@
         <item name="android:textColor">
             @color/greylighterM
         </item>
-
     </style>
 
 

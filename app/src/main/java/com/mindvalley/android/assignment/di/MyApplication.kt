@@ -1,4 +1,4 @@
-package com.mindvalley.android.assignment.utils
+package com.mindvalley.android.assignment.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

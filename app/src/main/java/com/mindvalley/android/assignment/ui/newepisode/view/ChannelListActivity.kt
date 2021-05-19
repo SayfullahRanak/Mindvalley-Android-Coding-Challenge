@@ -1,4 +1,4 @@
-package com.sevenpeakssoftware.sayfullah.ui.carlist.view
+package com.mindvalley.android.assignment.ui.newepisode.view
 
 import android.os.Bundle
 import android.view.View
@@ -6,16 +6,19 @@ import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.mindvalley.android.assignment.R
 import com.mindvalley.android.assignment.bases.BaseActivity
-import com.sevenpeakssoftware.sayfullah.ui.carlist.adapter.CarListAdapter
-import com.sayfullah.assignment.R
-import com.sevenpeakssoftware.sayfullah.data.ErrorIn
-import com.sevenpeakssoftware.sayfullah.data.Loading
-import com.sevenpeakssoftware.sayfullah.data.Success
-import com.sevenpeakssoftware.sayfullah.ui.carlist.viewmodel.ChannelRemoteViewModel
-import com.sevenpeakssoftware.sayfullah.utils.ProjectUtils.Companion.showAlert
+import com.mindvalley.android.assignment.entities.ErrorIn
+import com.mindvalley.android.assignment.entities.Loading
+import com.mindvalley.android.assignment.entities.Success
+import com.mindvalley.android.assignment.ui.newepisode.adapter.NewEpisodeAdapter
+
+
+import com.mindvalley.android.assignment.ui.newepisode.viewmodel.ChannelRemoteViewModel
+import com.mindvalley.android.assignment.utils.ProjectUtils.Companion.showAlert
+
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_carlist.*
+import kotlinx.android.synthetic.main.activity_channel_list.*
 import kotlinx.coroutines.launch
 import androidx.recyclerview.widget.LinearLayoutManager as LinearLayoutManager
 
@@ -29,52 +32,44 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
 
     private  val channelListViewModel: ChannelRemoteViewModel by viewModels()
 
-    private lateinit var carListAdapter: CarListAdapter
-
+    private lateinit var newEpisodeAdapter: NewEpisodeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_carlist)
+        setContentView(R.layout.activity_channel_list)
 
-        swipelayout.setOnRefreshListener(this)
+        holderSL.setOnRefreshListener(this)
 
         initAdapter()
 
         observeViewModel()
-
     }
-
-
-
 
     private fun initAdapter() {
 
-        carListAdapter =
-            CarListAdapter()
+        newEpisodeAdapter = NewEpisodeAdapter()
 
-        carListrv.layoutManager = LinearLayoutManager(this) 
+        newFeatureListLV.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
 
-        carListrv.adapter = carListAdapter
+        newFeatureListLV.adapter = newEpisodeAdapter
 
-        fetchCarList()
+        fetchNewEpisodeList()
 
     }
 
-
-
-    private fun fetchCarList() {
+    private fun fetchNewEpisodeList() {
         lifecycleScope.launch {
-            channelListViewModel.fetchCarList()
+            channelListViewModel.fetchNewEpisodeList()
         }
     }
 
     private fun observeViewModel(){
-        channelListViewModel.carListlv.observe(this, Observer {
+        channelListViewModel.newEpisodeList.observe(this, Observer {
             when(it){
                 is Success ->{
                     val carListResponse = it.data as List<*>
-                    carListAdapter.updateList(carListResponse)
+                    newEpisodeAdapter.updateList(carListResponse)
                     loading(false)
                 }
                 is ErrorIn ->{
@@ -92,22 +87,22 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
     }
 
     override fun onRefresh() {
-        swipelayout.isRefreshing = false
-        fetchCarList()
+        holderSL.isRefreshing = false
+        fetchNewEpisodeList()
     }
 
     override fun onBackPressed() {
-        val layoutManager = carListrv
+        val layoutManager = newFeatureListLV
             .layoutManager as LinearLayoutManager
         if (layoutManager.findFirstCompletelyVisibleItemPosition() == 0) {
             super.onBackPressed()
         } else {
-            carListrv.smoothScrollToPosition(0)
+            newFeatureListLV.smoothScrollToPosition(0)
         }
     }
 
     private fun loading(show: Boolean) {
-        progressBar.visibility = if(show) View.VISIBLE else View.INVISIBLE
+//        progressBar.visibility = if(show) View.VISIBLE else View.INVISIBLE
     }
     
     

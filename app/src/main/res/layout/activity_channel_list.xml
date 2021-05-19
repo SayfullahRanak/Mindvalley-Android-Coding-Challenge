@@ -18,9 +18,8 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/title"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="35dp"
         android:fontFamily="@font/gilroybold"
-        android:padding="16dp"
         android:text="@string/channels"
         android:textAppearance="@style/channel_header"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,70 +27,100 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipelayout"
-        android:layout_width="match_parent"
+        android:id="@+id/holderSL"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guidelineStart"
+        android:layout_marginTop="30dp"
+        app:layout_constraintStart_toStartOf="@+id/guidelineStart"
         app:layout_constraintTop_toBottomOf="@+id/title">
 
-        <FrameLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/newepisodtitleTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical">
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/ic_not_found"/>
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/gilroyheavy"
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:textColor="@color/whiteM"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/no_item_found"/>
-            </LinearLayout>
+                android:fontFamily="@font/gilroybold"
+                android:text="@string/new_episodes"
+                android:layout_marginBottom="15dp"
+                android:textAlignment="textStart"
+                android:textAppearance="@style/new_episode_header" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/carListrv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="50dp"
-                />
-
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleLarge"
+                android:id="@+id/newFeatureListLV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                 />
+                app:layout_constraintEnd_toEndOf="@+id/title"
+                app:layout_constraintStart_toStartOf="@+id/title"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                tools:itemCount="4"
+                tools:listitem="@layout/row_episodes" />
 
-        </FrameLayout>
+        </LinearLayout>
+
+        <!--        <FrameLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content">-->
+
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="15dp"-->
+        <!--                android:visibility="gone"-->
+        <!--                android:orientation="vertical">-->
+
+        <!--                <androidx.appcompat.widget.AppCompatImageView-->
+        <!--                    android:layout_width="80dp"-->
+        <!--                    android:layout_height="80dp"-->
+        <!--                    android:layout_gravity="center"-->
+        <!--                    app:srcCompat="@drawable/ic_not_found"/>-->
+
+        <!--                <androidx.appcompat.widget.AppCompatTextView-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:fontFamily="@font/gilroyheavy"-->
+        <!--                    android:textAlignment="center"-->
+        <!--                    android:textSize="18sp"-->
+        <!--                    android:textColor="@color/whiteM"-->
+        <!--                    android:layout_marginTop="12dp"-->
+        <!--                    android:text="@string/no_item_found"/>-->
+        <!--            </LinearLayout>-->
+        <!--            -->
+        <!--            -->
+
+        <!--            <androidx.recyclerview.widget.RecyclerView-->
+        <!--                android:id="@+id/newFeatureListLV"-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:paddingBottom="50dp"-->
+        <!--                />-->
+
+        <!--            <ProgressBar-->
+        <!--                android:id="@+id/progressBar"-->
+        <!--                style="?android:attr/progressBarStyleLarge"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:visibility="gone"-->
+        <!--                 />-->
+
+        <!--        </FrameLayout>-->
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/noInternet"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/redDark"
         android:text="No Internet"
         android:textAlignment="center"
-        android:background="@color/redDark"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 

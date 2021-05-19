@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.mindvalley.android.assignment.db.AppDatabase
 import com.mindvalley.android.assignment.utils.Cons
-import com.sevenpeakssoftware.sayfullah.rest.RestService
+import com.mindvalley.android.assignment.rest.RestService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -48,7 +48,7 @@ class ApplicationModule {
         httpClient.connectTimeout(30, TimeUnit.SECONDS)
         httpClient.readTimeout(30, TimeUnit.SECONDS)
         httpClient.callTimeout(30, TimeUnit.SECONDS)
-        val addInterceptor = httpClient.addInterceptor(interceptor)
+        httpClient.addInterceptor(interceptor)
         return httpClient
     }
 

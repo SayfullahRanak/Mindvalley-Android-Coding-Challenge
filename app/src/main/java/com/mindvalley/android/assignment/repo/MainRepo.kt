@@ -2,12 +2,10 @@ package com.mindvalley.android.assignment.repo
 
 
 import com.mindvalley.android.assignment.entities.Categories
-import com.mindvalley.android.assignment.entities.Category
 import com.mindvalley.android.assignment.entities.Channels
 import com.mindvalley.android.assignment.entities.NewEpisodes
-import com.sevenpeakssoftware.sayfullah.rest.RestService
+import com.mindvalley.android.assignment.rest.RestService
 import retrofit2.Response
-import java.util.*
 import javax.inject.Inject
 
 class MainRepo @Inject

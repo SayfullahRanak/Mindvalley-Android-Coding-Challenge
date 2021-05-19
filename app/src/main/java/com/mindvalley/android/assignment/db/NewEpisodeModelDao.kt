@@ -13,10 +13,10 @@ interface NewEpisodeModelDao {
     suspend fun insertAll(medias: List<Media>)
 
     @Query("SELECT * FROM Media")
-    fun getAllCatModel(): List<Media>
+    suspend fun getAllNewEpisodeModel(): List<Media>
 
     @Query("DELETE FROM Media")
-    suspend fun clearAllCategories()
+    suspend fun clearAllNewEpisode()
 
 
 

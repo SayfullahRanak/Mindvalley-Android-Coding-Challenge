@@ -1,4 +1,4 @@
-package com.sevenpeakssoftware.sayfullah.rest
+package com.mindvalley.android.assignment.rest
 
 import com.mindvalley.android.assignment.entities.Categories
 import com.mindvalley.android.assignment.entities.Channels
