@@ -12,10 +12,9 @@ import com.mindvalley.android.assignment.ui.channelmain.newepisode.adapter.NewEp
  * Created by Md Sayfullah Al Noman Ranak
  */
 
-class EpisodeAdapter :
+class EpisodeAdapter(private val items : List<LatestMedia>?) :
         RecyclerView.Adapter<EpisodeViewHolder>(){
 
-    private var items: List<*>? = ArrayList<LatestMedia>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EpisodeViewHolder {
         return when(viewType){
             R.layout.row_episodes -> EpisodeViewHolder.create(
@@ -31,7 +30,7 @@ class EpisodeAdapter :
 
 
     override fun onBindViewHolder(holder: EpisodeViewHolder, position: Int) {
-        val item = items?.get(position) as Sery
+        val item = items?.get(position) as LatestMedia
         holder.bindTo(item)
     }
 
@@ -39,9 +38,9 @@ class EpisodeAdapter :
         return items?.size ?: 0
     }
 
-    fun <T>updateList(list: List<T>){
-        items = list
-        notifyDataSetChanged()
-    }
+//    fun <T>updateList(list: List<T>){
+//        items = list
+//        notifyDataSetChanged()
+//    }
 
 }

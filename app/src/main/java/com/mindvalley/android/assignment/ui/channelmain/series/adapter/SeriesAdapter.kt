@@ -12,10 +12,9 @@ import com.mindvalley.android.assignment.ui.channelmain.newepisode.adapter.NewEp
  * Created by Md Sayfullah Al Noman Ranak
  */
 
-class SeriesAdapter :
+class SeriesAdapter(private val items : List<Sery>?) :
         RecyclerView.Adapter<SeriesViewHolder>(){
 
-    private var items: List<*>? = ArrayList<Sery>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SeriesViewHolder {
         return when(viewType){
             R.layout.row_series -> SeriesViewHolder.create(
@@ -39,9 +38,9 @@ class SeriesAdapter :
         return items?.size ?: 0
     }
 
-    fun <T>updateList(list: List<T>){
-        items = list
-        notifyDataSetChanged()
-    }
+//    fun <T>updateList(list: List<T>){
+//        items = list
+//        notifyDataSetChanged()
+//    }
 
 }

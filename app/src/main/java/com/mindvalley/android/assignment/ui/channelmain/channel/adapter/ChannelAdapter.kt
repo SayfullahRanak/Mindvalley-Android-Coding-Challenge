@@ -12,10 +12,11 @@ import com.mindvalley.android.assignment.entities.Channel
 class ChannelAdapter :
         RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
+
     private var items: List<*>? = ArrayList<Channel>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when(viewType){
-            R.layout.row_episodes -> ChannelViewHolder.create(
+            R.layout.row_channel -> ChannelViewHolder.create(
                     parent
             )
             else -> throw IllegalArgumentException("unknown view type")
@@ -23,7 +24,7 @@ class ChannelAdapter :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return R.layout.row_episodes
+        return R.layout.row_channel
     }
 
 

@@ -22,7 +22,7 @@ interface RestService {
     suspend fun getNewEpisodes(): Response<NewEpisodes>
 
 
-    @GET("raw/z5AExTtw")
+    @GET("raw/Xt12uVhM")
     suspend fun getChannels(): Response<Channels>
 
 

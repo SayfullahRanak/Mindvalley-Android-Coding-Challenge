@@ -24,6 +24,7 @@ class ChannelRemoteViewModel @ViewModelInject constructor(private val mainRepo: 
 
 
     val newEpisodeList = MutableLiveData<Response>()
+    val channelList = MutableLiveData<Response>()
     val networkStatus = MutableLiveData<Boolean>()
 
     suspend fun fetchNewEpisodeList(){
@@ -50,6 +51,35 @@ class ChannelRemoteViewModel @ViewModelInject constructor(private val mainRepo: 
             netWorkStatus = getConnectivityStatus(MyApplication.appInstance) != TYPE_NOT_CONNECTED
         }catch (exception: HttpException){
             newEpisodeList.postValue(ErrorIn(2, exception.message))
+            netWorkStatus = getConnectivityStatus(MyApplication.appInstance) != TYPE_NOT_CONNECTED
+        }
+        networkStatus.postValue(netWorkStatus)
+    }
+
+    suspend fun fetchChannelList(){
+        var netWorkStatus = true
+        if (appDatabase.getChannelDao().getAllChannel().isEmpty()) newEpisodeList.postValue(Loading("Loading channel List..."))
+        else channelList.postValue(Success(appDatabase.getChannelDao().getAllChannel()))
+
+        try {
+            val apiResponse = mainRepo.getChannels()
+            if(apiResponse.code() == 200){
+                appDatabase.getChannelDao().clearAllChannel()
+                /*Keep in mind the JSON provided might have some
+                data missing in some instances, so these cases
+                should be handled gracefully to provide a good UX
+
+                        ...... So check null safety*/
+                channelList.postValue(Success(apiResponse.body()?.data?.channels))
+                appDatabase.getChannelDao().insertAll(apiResponse.body()?.data?.channels!!)
+            }else{
+                channelList.postValue(ErrorIn(0, apiResponse.message()))
+            }
+        }catch (exception: IOException){
+            channelList.postValue(ErrorIn(1, exception.message))
+            netWorkStatus = getConnectivityStatus(MyApplication.appInstance) != TYPE_NOT_CONNECTED
+        }catch (exception: HttpException){
+            channelList.postValue(ErrorIn(2, exception.message))
             netWorkStatus = getConnectivityStatus(MyApplication.appInstance) != TYPE_NOT_CONNECTED
         }
         networkStatus.postValue(netWorkStatus)

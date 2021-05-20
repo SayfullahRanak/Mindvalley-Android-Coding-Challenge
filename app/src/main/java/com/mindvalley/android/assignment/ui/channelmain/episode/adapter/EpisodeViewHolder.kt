@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mindvalley.android.assignment.R
+import com.mindvalley.android.assignment.entities.LatestMedia
 import com.mindvalley.android.assignment.entities.Sery
 
 
@@ -14,7 +15,8 @@ import com.mindvalley.android.assignment.entities.Sery
 
 class EpisodeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-    fun bindTo(content: Sery){
+    fun bindTo(content: LatestMedia){
+
 
 
     }

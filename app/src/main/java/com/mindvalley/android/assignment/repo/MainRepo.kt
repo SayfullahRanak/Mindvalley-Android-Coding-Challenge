@@ -22,7 +22,7 @@ constructor(private val repoService: RestService) {
         return repoService.getNewEpisodes()
     }
 
-    suspend fun getChannel(): Response<Channels> {
+    suspend fun getChannels(): Response<Channels> {
 
         return repoService.getChannels()
     }

@@ -13,10 +13,10 @@ interface ChannelsModelDao {
     suspend fun insertAll(channels: List<Channel>)
 
     @Query("SELECT * FROM Channel")
-    fun getAllCatModel(): List<Channel>
+    suspend fun getAllChannel(): List<Channel>
 
     @Query("DELETE FROM Channel")
-    suspend fun clearAllCats()
+    suspend fun clearAllChannel()
 
 
 

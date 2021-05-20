@@ -132,8 +132,6 @@
         </item>
     </style>
 
-
-
     <style name="channel_title">
 
         <item name="android:textSize">
@@ -153,7 +151,6 @@
         </item>
 
     </style>
-
 
     <style name="channel_sub_title">
 
@@ -175,8 +172,6 @@
 
     </style>
 
-
-
     <style name="channel_header">
 
         <item name="android:textSize">
@@ -189,6 +184,26 @@
 
         <item name="android:textColor">
             #C1C1C1
+        </item>
+
+    </style>
+
+    <style name="category_title">
+
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.01
+        </item>
+
+        <item name="fontFamily">
+            @font/gilroybold
+        </item>
+
+        <item name="android:textColor">
+            @color/whiteM
         </item>
 
     </style>

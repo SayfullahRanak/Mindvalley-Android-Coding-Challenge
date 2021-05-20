@@ -48,8 +48,11 @@ class Converter {
     }
 
     @TypeConverter
-    fun fromIconAsset(iconAsset: IconAsset) : String{
-        return Gson().toJson(iconAsset)
+    fun fromIconAsset(iconAsset: IconAsset?) : String{
+
+        iconAsset?.let {
+            return Gson().toJson(iconAsset)
+        } ?: return ""
     }
 
     @TypeConverter
@@ -64,7 +67,9 @@ class Converter {
 
     @TypeConverter
     fun toIconAsset(item: String ) : IconAsset{
-        return Gson().fromJson(item,IconAsset::class.java)
+        Gson().fromJson(item,IconAsset::class.java)?.let {
+            return it
+        } ?: return IconAsset("")
     }
 
     @TypeConverter

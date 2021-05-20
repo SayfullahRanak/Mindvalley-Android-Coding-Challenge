@@ -11,6 +11,7 @@ import com.mindvalley.android.assignment.bases.BaseActivity
 import com.mindvalley.android.assignment.entities.ErrorIn
 import com.mindvalley.android.assignment.entities.Loading
 import com.mindvalley.android.assignment.entities.Success
+import com.mindvalley.android.assignment.ui.channelmain.channel.adapter.ChannelAdapter
 import com.mindvalley.android.assignment.ui.newepisode.adapter.NewEpisodeAdapter
 
 
@@ -33,7 +34,9 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
 
     private  val channelListViewModel: ChannelRemoteViewModel by viewModels()
 
-    private lateinit var newEpisodeViewHolder: NewEpisodeAdapter
+    private lateinit var newEpisodeAdapter: NewEpisodeAdapter
+
+    private lateinit var channelAdapter: ChannelAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,15 +52,25 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
 
     private fun initAdapter() {
 
-        newEpisodeViewHolder = NewEpisodeAdapter()
+        newEpisodeAdapter = NewEpisodeAdapter()
 
         newFeatureListLV.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
 
         newFeatureListLV.addItemDecoration(HorizontalListViewDecoration())
 
-        newFeatureListLV.adapter = newEpisodeViewHolder
+        newFeatureListLV.adapter = newEpisodeAdapter
 
         fetchNewEpisodeList()
+
+        channelAdapter = ChannelAdapter()
+
+        channelListLv.layoutManager = LinearLayoutManager(this)
+
+        channelListLv.addItemDecoration(HorizontalListViewDecoration())
+
+        channelListLv.adapter = channelAdapter
+
+        fetchChannelList()
 
     }
 
@@ -67,12 +80,34 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
         }
     }
 
+    private fun fetchChannelList() {
+        lifecycleScope.launch {
+            channelListViewModel.fetchChannelList()
+        }
+    }
+
     private fun observeViewModel(){
         channelListViewModel.newEpisodeList.observe(this, Observer {
             when(it){
                 is Success ->{
                     val carListResponse = it.data as List<*>
-                    newEpisodeViewHolder.updateList(carListResponse)
+                    newEpisodeAdapter.updateList(carListResponse)
+                    loading(false)
+                }
+                is ErrorIn ->{
+                    showAlert(this,"Error in network",it.message,true)
+                }
+                is Loading ->{
+                    loading(true)
+                }
+            }
+        })
+
+        channelListViewModel.channelList.observe(this, Observer {
+            when(it){
+                is Success ->{
+                    val channelListResponse = it.data as List<*>
+                    channelAdapter.updateList(channelListResponse)
                     loading(false)
                 }
                 is ErrorIn ->{

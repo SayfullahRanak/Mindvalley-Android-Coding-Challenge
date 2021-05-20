@@ -7,6 +7,8 @@
     android:background="@color/colorPrimary"
     android:fitsSystemWindows="true">
 
+
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineStart"
         android:layout_width="wrap_content"
@@ -14,63 +16,102 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="12dp" />
 
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/title"
-        android:layout_width="0dp"
-        android:layout_height="35dp"
-        android:fontFamily="@font/gilroybold"
-        android:text="@string/channels"
-        android:textAppearance="@style/channel_header"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@id/guidelineStart"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.mindvalley.android.assignment.utils.OnlyVerticalSwipeRefreshLayout
         android:id="@+id/holderSL"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="@+id/guidelineStart"
-        app:layout_constraintTop_toBottomOf="@+id/title">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/newepisodtitleTv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/gilroybold"
-                android:text="@string/new_episodes"
-                android:layout_marginBottom="15dp"
-                android:textAlignment="textStart"
-                android:textAppearance="@style/new_episode_header" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/newFeatureListLV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="@+id/title"
-                app:layout_constraintStart_toStartOf="@+id/title"
-                app:layout_constraintTop_toBottomOf="@+id/title"
-                tools:itemCount="4"
-                tools:listitem="@layout/row_episodes" />
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/greylightest"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="@+id/orderList"
-                app:layout_constraintHorizontal_bias="0"
-                />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-        </LinearLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:fontFamily="@font/gilroybold"
+                    android:text="@string/channels"
+                    android:textAppearance="@style/channel_header"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/newepisodtitleTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroybold"
+                    android:text="@string/new_episodes"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/new_episode_header" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/newFeatureListLV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="@+id/title"
+                    app:layout_constraintStart_toStartOf="@+id/title"
+                    app:layout_constraintTop_toBottomOf="@+id/title"
+                    tools:itemCount="4"
+                    tools:orientation="horizontal"
+                    tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/row_episodes" />
+
+                <LinearLayout
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/greylightest"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="@+id/orderList"
+                    app:layout_constraintHorizontal_bias="0"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/channelListLv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    tools:itemCount="4"
+                    tools:orientation="horizontal"
+                    tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/row_channel" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/categoryTitleTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroybold"
+                    android:text="@string/browse_by_category"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="15dp"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/new_episode_header" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/categoryList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="26dp"
+                    tools:spanCount="2"
+                    tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    tools:listitem="@layout/row_category" />
+
+
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
 
     </com.mindvalley.android.assignment.utils.OnlyVerticalSwipeRefreshLayout>
 
