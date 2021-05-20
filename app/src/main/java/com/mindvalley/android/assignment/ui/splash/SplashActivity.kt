@@ -10,7 +10,7 @@ import android.view.WindowManager
 import com.mindvalley.android.assignment.BuildConfig
 import com.mindvalley.android.assignment.R
 import com.mindvalley.android.assignment.bases.BaseActivity
-import com.mindvalley.android.assignment.ui.newepisode.view.ChannelListActivity
+import com.mindvalley.android.assignment.ui.channelmain.view.ChannelListActivity
 
 import kotlinx.android.synthetic.main.activity_splash.*
 

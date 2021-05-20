@@ -87,6 +87,7 @@
     <color name="blackM">#23272F</color>
     <color name="greyM">#3C434E</color>
     <color name="greylighterM">#95989D</color>
+    <color name="greylightest">#3C434E</color>
     <color name="greylighter20pM">#3395989D</color>
     <!-- 20%   -->
 

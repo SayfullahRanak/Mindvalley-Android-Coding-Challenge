@@ -37,7 +37,7 @@
     <style name="episode_title">
 
         <item name="android:textSize">
-            25sp
+            17sp
         </item>
 
         <item name="android:letterSpacing">
@@ -45,7 +45,7 @@
         </item>
 
         <item name="android:textColor">
-            #FFFFFF
+            @color/whiteM
         </item>
 
     </style>
@@ -116,6 +116,65 @@
             @color/greylighterM
         </item>
     </style>
+
+    <style name="episode_sub_title">
+
+        <item name="android:textSize">
+            13sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.08
+        </item>
+
+        <item name="android:textColor">
+            @color/greylighterM
+        </item>
+    </style>
+
+
+
+    <style name="channel_title">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.01
+        </item>
+
+        <item name="android:textColor">
+            @color/whiteM
+        </item>
+
+        <item name="android:fontFamily">
+            @font/gilroybold
+        </item>
+
+    </style>
+
+
+    <style name="channel_sub_title">
+
+        <item name="android:textSize">
+            16sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.01
+        </item>
+
+        <item name="android:textColor">
+            @color/greylighterM
+        </item>
+
+        <item name="android:fontFamily">
+            @font/gilroyregular
+        </item>
+
+    </style>
+
 
 
     <style name="channel_header">

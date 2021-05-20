@@ -6,25 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:fitsSystemWindows="true">
+    >
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="0dp"
+        android:layout_width="350dp"
         android:layout_height="200dp"
         app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/roundedImageView"
+            android:id="@+id/rectangularIV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/whiteM"
             android:scaleType="centerCrop"
-            android:src="@drawable/cbimage_2" />
+            tools:src="@drawable/cbimage_2" />
 
 
     </androidx.cardview.widget.CardView>
