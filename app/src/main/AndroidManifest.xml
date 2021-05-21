@@ -30,6 +30,9 @@
             android:name=".ui.channelmain.view.ChannelListActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
+<!--        <meta-data-->
+<!--            android:name="com.mindvalley.android.assignment.utils.UnsafeOkHttpGlideModule"-->
+<!--            android:value="GlideModule" />-->
 
 
     </application>

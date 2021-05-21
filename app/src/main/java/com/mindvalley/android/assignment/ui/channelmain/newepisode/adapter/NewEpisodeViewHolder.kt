@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.mindvalley.android.assignment.R
 import com.mindvalley.android.assignment.entities.Media
+import com.mindvalley.android.assignment.utils.GlideApp
 import kotlinx.android.synthetic.main.row_episodes.view.*
 
 
@@ -18,7 +19,7 @@ import kotlinx.android.synthetic.main.row_episodes.view.*
 class NewEpisodeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bindTo(content: Media){
-        Glide.with(itemView.context)
+        GlideApp.with(itemView.context)
                 .asBitmap()
                 .load(content.coverAsset.url)
                 .apply{RequestOptions.placeholderOf(R.drawable.ic_broken_image).error(R.drawable.ic_broken_image)}

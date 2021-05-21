@@ -208,6 +208,10 @@
 
     </style>
 
+    <style name="ShapeAppearance.App.CircleImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+    </style>
+
 
 
 </resources>

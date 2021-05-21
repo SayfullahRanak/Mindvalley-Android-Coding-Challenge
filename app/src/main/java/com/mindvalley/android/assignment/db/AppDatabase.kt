@@ -15,6 +15,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getChannelDao() : ChannelsModelDao
     abstract fun getNewEpisodeDao() : NewEpisodeModelDao
+    abstract fun getCategoryDao() : CategoriesModelDao
 
 
     companion object{

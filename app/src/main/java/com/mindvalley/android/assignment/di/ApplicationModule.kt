@@ -1,10 +1,12 @@
 package com.mindvalley.android.assignment.di
 
 import android.content.Context
+import android.os.Build
 import android.util.Log
 import com.mindvalley.android.assignment.db.AppDatabase
 import com.mindvalley.android.assignment.utils.Cons
 import com.mindvalley.android.assignment.rest.RestService
+import com.mindvalley.android.assignment.utils.NetworkUtil.Companion.getUnsafeOkHttpClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -44,7 +46,13 @@ class ApplicationModule {
     @Singleton
     @Provides
     fun provideOkHttp(interceptor: HttpLoggingInterceptor): OkHttpClient.Builder {
-        val httpClient = OkHttpClient().newBuilder()
+
+        val httpClient = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            OkHttpClient().newBuilder()
+        } else {
+            getUnsafeOkHttpClient()
+        }
+
         httpClient.connectTimeout(30, TimeUnit.SECONDS)
         httpClient.readTimeout(30, TimeUnit.SECONDS)
         httpClient.callTimeout(30, TimeUnit.SECONDS)

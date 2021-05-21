@@ -13,7 +13,7 @@ interface CategoriesModelDao {
     suspend fun insertAll(categories: List<Category>)
 
     @Query("SELECT * FROM Category")
-    fun getAllCategory():  List<Category>
+    suspend fun getAllCategory():  List<Category>
 
     @Query("DELETE FROM Category")
     suspend fun clearAllCategories()

@@ -5,17 +5,21 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.mindvalley.android.assignment.R
 import com.mindvalley.android.assignment.bases.BaseActivity
 import com.mindvalley.android.assignment.entities.ErrorIn
 import com.mindvalley.android.assignment.entities.Loading
 import com.mindvalley.android.assignment.entities.Success
+import com.mindvalley.android.assignment.ui.channelmain.category.adapter.CategoryAdapter
 import com.mindvalley.android.assignment.ui.channelmain.channel.adapter.ChannelAdapter
 import com.mindvalley.android.assignment.ui.newepisode.adapter.NewEpisodeAdapter
 
 
 import com.mindvalley.android.assignment.ui.newepisode.viewmodel.ChannelRemoteViewModel
+import com.mindvalley.android.assignment.utils.GridListViewDecoration
 import com.mindvalley.android.assignment.utils.HorizontalListViewDecoration
 import com.mindvalley.android.assignment.utils.ProjectUtils.Companion.showAlert
 
@@ -37,6 +41,8 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
     private lateinit var newEpisodeAdapter: NewEpisodeAdapter
 
     private lateinit var channelAdapter: ChannelAdapter
+
+    private lateinit var categoryAdapter: CategoryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +68,8 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
 
         fetchNewEpisodeList()
 
+
+
         channelAdapter = ChannelAdapter()
 
         channelListLv.layoutManager = LinearLayoutManager(this)
@@ -71,6 +79,19 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
         channelListLv.adapter = channelAdapter
 
         fetchChannelList()
+
+
+
+        categoryAdapter = CategoryAdapter()
+
+        categoryListLV.layoutManager = GridLayoutManager(this, 2) as RecyclerView.LayoutManager?
+
+//        categoryListLV.addItemDecoration(GridListViewDecoration())
+
+        categoryListLV.adapter = categoryAdapter
+
+        fetchCategoryList()
+
 
     }
 
@@ -83,6 +104,12 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
     private fun fetchChannelList() {
         lifecycleScope.launch {
             channelListViewModel.fetchChannelList()
+        }
+    }
+
+    private fun fetchCategoryList() {
+        lifecycleScope.launch {
+            channelListViewModel.fetchCategoryList()
         }
     }
 
@@ -108,6 +135,22 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
                 is Success ->{
                     val channelListResponse = it.data as List<*>
                     channelAdapter.updateList(channelListResponse)
+                    loading(false)
+                }
+                is ErrorIn ->{
+                    showAlert(this,"Error in network",it.message,true)
+                }
+                is Loading ->{
+                    loading(true)
+                }
+            }
+        })
+
+        channelListViewModel.categoryList.observe(this, Observer {
+            when(it){
+                is Success ->{
+                    val categoryListResponse = it.data as List<*>
+                    categoryAdapter.updateList(categoryListResponse)
                     loading(false)
                 }
                 is ErrorIn ->{
