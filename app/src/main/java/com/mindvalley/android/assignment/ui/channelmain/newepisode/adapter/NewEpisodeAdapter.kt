@@ -16,13 +16,13 @@ class NewEpisodeAdapter :
     private var items: List<*>? = ArrayList<Media>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewEpisodeViewHolder {
         return when(viewType){
-            R.layout.row_episodes -> NewEpisodeViewHolder.create(parent)
+            R.layout.row_new_episodes -> NewEpisodeViewHolder.create(parent)
             else -> throw IllegalArgumentException("unknown view type")
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        return R.layout.row_episodes
+        return R.layout.row_new_episodes
     }
 
 

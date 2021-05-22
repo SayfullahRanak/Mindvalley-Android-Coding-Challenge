@@ -33,7 +33,7 @@
             android:layout_marginStart="36dp"
             android:layout_marginTop="32dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/ic_car_view_holder"
+            app:srcCompat="@drawable/ic_car_view_holder"
             android:tint="@color/whiteM"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

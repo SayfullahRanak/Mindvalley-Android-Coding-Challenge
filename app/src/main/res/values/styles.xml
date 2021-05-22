@@ -208,8 +208,13 @@
 
     </style>
 
-    <style name="ShapeAppearance.App.CircleImageView" parent="">
+    <style name="ShapeAppearance.App.CircleImageView" parent="Theme.MaterialComponents">
         <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">48%</item>
+        <item name="android:textColor">@color/whiteM</item>
+        <item name="colorOnPrimary">@android:color/holo_red_light</item>
+        <item name="colorPrimary">@android:color/holo_orange_dark</item>
+        <item name="colorOnSurface">@android:color/holo_orange_light</item>
     </style>
 
 

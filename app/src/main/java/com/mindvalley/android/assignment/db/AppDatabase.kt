@@ -8,8 +8,9 @@ import androidx.room.TypeConverters
 import com.mindvalley.android.assignment.entities.Category
 import com.mindvalley.android.assignment.entities.Channel
 import com.mindvalley.android.assignment.entities.Media
+import com.mindvalley.android.assignment.utils.Cons.Companion.ROOM_VERSION
 
-@Database(version = 1, entities = [ Channel::class,Media::class, Category::class], exportSchema = false)
+@Database(version = ROOM_VERSION, entities = [ Channel::class,Media::class, Category::class], exportSchema = false)
 @TypeConverters(Converter::class)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -30,6 +31,7 @@ abstract class AppDatabase : RoomDatabase() {
 
         private fun buildDataBase(context: Context) =
             Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, CHANNEL_DB)
+                .fallbackToDestructiveMigration()
                 .build()
         }
 }

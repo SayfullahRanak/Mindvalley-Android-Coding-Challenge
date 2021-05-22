@@ -1,13 +1,16 @@
 package com.mindvalley.android.assignment.utils
 
+import android.content.Context
 import android.graphics.Rect
+import android.os.Build
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.mindvalley.android.assignment.utils.ProjectUtils.Companion.dpTopx
+import com.mindvalley.android.assignment.utils.ProjectUtils.Companion.getScreenWidth
+import com.mindvalley.android.assignment.utils.ProjectUtils.Companion.getSpcing
 
-class HorizontalListViewDecoration : RecyclerView.ItemDecoration() {
+class HorizontalListViewDecoration(private val context : Context) : RecyclerView.ItemDecoration() {
 
-        val margin16Px = 50
-//            MyApplication.appInstance.resources.getDimension(R.dimen.padding16px).toInt()
 
     override fun getItemOffsets(
         outRect: Rect,
@@ -15,14 +18,9 @@ class HorizontalListViewDecoration : RecyclerView.ItemDecoration() {
         parent: RecyclerView,
         state: RecyclerView.State
     ) {
-        super.getItemOffsets(outRect, view, parent, state)
-
-        val position  = parent.getChildAdapterPosition(view)
-
-        outRect.right = margin16Px
-//        outRect.left = margin16Px
-//        outRect.top = margin16Px
-//        outRect.bottom = margin16Px
-
+        val spacing = getScreenWidth(context).toFloat()/30
+        outRect.right = (getScreenWidth(context).toFloat()/30).toInt()
+        outRect.top = (getScreenWidth(context).toFloat()/40).toInt()
+        outRect.bottom = (getScreenWidth(context).toFloat()/40).toInt()
     }
 }

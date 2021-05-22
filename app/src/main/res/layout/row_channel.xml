@@ -9,20 +9,22 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/titleholder"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/titleIV"
-            android:layout_width="80dp"
-            android:layout_height="100dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:state_enabled="true"
             android:scaleType="centerCrop"
-            app:shapeAppearance="@style/ShapeAppearance.App.CircleImageView"
+            app:strokeColor="@color/transparent"
+            app:strokeWidth="0dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/cbimage" />
+            app:shapeAppearance="@style/ShapeAppearance.App.CircleImageView"/>
 
 
 
@@ -54,15 +56,14 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/channelentityLV"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="@+id/titleholder"
         app:layout_constraintTop_toBottomOf="@+id/titleholder"
         tools:orientation="horizontal"
         tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="2"
-        tools:listitem="@layout/row_series" />
+        tools:listitem="@layout/row_new_episodes" />
 
 
 

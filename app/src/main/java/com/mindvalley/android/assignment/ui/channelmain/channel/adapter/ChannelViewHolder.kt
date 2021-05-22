@@ -26,26 +26,33 @@ class ChannelViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     fun bindTo(content: Channel){
 
-        GlideApp.with(itemView.context)
-            .asBitmap()
-            .load(content.iconAsset)
-            .apply{ RequestOptions.placeholderOf(R.drawable.ic_broken_image).error(R.drawable.ic_broken_image)}
-            .into(itemView.titleIV)
+        content.iconAsset?.thumbnailUrl?.let {
+            GlideApp.with(itemView.context)
+                .asBitmap()
+                .load(content.iconAsset.thumbnailUrl)
+                .placeholder(R.color.colorPrimaryDark)
+                .into(itemView.titleIV)
+        }
+
         itemView.titleTV.text = content.title
 
-        if(content.series.isEmpty()){
+        if(content.series.isNullOrEmpty()){
+            itemView.channelentityLV.invalidateItemDecorations()
             itemView.subtitleTV.text = "${content.latestMedia.size} episodes"
-            val episodeAdapter  = EpisodeAdapter(content.latestMedia)
             itemView.channelentityLV.layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
-//            itemView.channelentityLV.addItemDecoration(HorizontalListViewDecoration())
-            itemView.channelentityLV.adapter = episodeAdapter
-        }else{
-            itemView.subtitleTV.text = "${content.series.size} series"
-            val episodeAdapter  = SeriesAdapter(content.series)
-            itemView.channelentityLV.layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
-//            itemView.channelentityLV.addItemDecoration(HorizontalListViewDecoration())
+            itemView.channelentityLV.addItemDecoration(HorizontalListViewDecoration(itemView.context))
+            val episodeAdapter  = EpisodeAdapter(content.latestMedia.take(6))
             itemView.channelentityLV.adapter = episodeAdapter
         }
+        else{
+            itemView.channelentityLV.invalidateItemDecorations()
+            itemView.subtitleTV.text = "${content.series.size} series"
+            itemView.channelentityLV.layoutManager = LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL, false)
+            itemView.channelentityLV.addItemDecoration(HorizontalListViewDecoration(itemView.context))
+            val seriesAdapter  = SeriesAdapter(content.series.take(6))
+            itemView.channelentityLV.adapter = seriesAdapter
+        }
+//        itemView.channelentityLV.addItemDecoration(HorizontalListViewDecoration(itemView.context))
     }
 
     companion object{

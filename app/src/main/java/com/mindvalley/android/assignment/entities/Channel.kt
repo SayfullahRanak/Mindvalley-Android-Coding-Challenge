@@ -7,10 +7,10 @@ import androidx.room.PrimaryKey
 data class Channel(
     @PrimaryKey(autoGenerate = true)
     val id : Long,
-    val coverAsset: CoverAsset,
-    val iconAsset: IconAsset,
+    val coverAsset: CoverAsset?,
+    val iconAsset: IconAsset?,
     val latestMedia: List<LatestMedia>,
-    val mediaCount: Int,
-    val series: List<Sery>,
-    val title: String
+    val mediaCount: Int?,
+    val series: List<Sery>?,
+    val title: String?
 )

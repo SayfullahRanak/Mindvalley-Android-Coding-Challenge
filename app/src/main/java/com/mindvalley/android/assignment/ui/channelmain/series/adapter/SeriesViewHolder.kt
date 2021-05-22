@@ -21,8 +21,8 @@ class SeriesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bindTo(content: Sery){
         Glide.with(itemView.context)
                 .asBitmap()
-                .load(content.coverAsset.url)
-                .apply{ RequestOptions.placeholderOf(R.drawable.ic_broken_image).error(R.drawable.ic_broken_image)}
+                .load(content.coverAsset?.url)
+                .placeholder(R.color.colorPrimaryDark)
                 .into(itemView.rectangularIV)
         itemView.textView.text = content.title
 

@@ -10,6 +10,9 @@ class Cons {
 
         const val BASE_URL = BuildConfig.SERVER_URL
 
+        const val ROOM_VERSION = 3
+
+
 
     }
 }

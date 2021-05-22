@@ -22,6 +22,7 @@ import com.mindvalley.android.assignment.ui.newepisode.viewmodel.ChannelRemoteVi
 import com.mindvalley.android.assignment.utils.GridListViewDecoration
 import com.mindvalley.android.assignment.utils.HorizontalListViewDecoration
 import com.mindvalley.android.assignment.utils.ProjectUtils.Companion.showAlert
+import com.mindvalley.android.assignment.utils.VerticalListViewDecoration
 
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_channel_list.*
@@ -62,7 +63,7 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
 
         newFeatureListLV.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL, false)
 
-        newFeatureListLV.addItemDecoration(HorizontalListViewDecoration())
+        newFeatureListLV.addItemDecoration(HorizontalListViewDecoration(this))
 
         newFeatureListLV.adapter = newEpisodeAdapter
 
@@ -74,7 +75,7 @@ class ChannelListActivity : BaseActivity(false), SwipeRefreshLayout.OnRefreshLis
 
         channelListLv.layoutManager = LinearLayoutManager(this)
 
-        channelListLv.addItemDecoration(HorizontalListViewDecoration())
+        channelListLv.addItemDecoration(VerticalListViewDecoration(this,R.drawable.divider_recyleview))
 
         channelListLv.adapter = channelAdapter
 

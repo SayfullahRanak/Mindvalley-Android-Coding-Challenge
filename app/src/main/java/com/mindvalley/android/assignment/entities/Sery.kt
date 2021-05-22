@@ -1,6 +1,6 @@
 package com.mindvalley.android.assignment.entities
 
 data class Sery(
-    val coverAsset: CoverAsset,
-    val title: String
+    val coverAsset: CoverAsset?,
+    val title: String?
 )

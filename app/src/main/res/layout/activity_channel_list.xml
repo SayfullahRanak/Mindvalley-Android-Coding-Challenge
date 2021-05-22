@@ -60,23 +60,20 @@
                     tools:itemCount="4"
                     tools:orientation="horizontal"
                     tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/row_episodes" />
+                    tools:listitem="@layout/row_new_episodes" />
 
                 <LinearLayout
                     android:id="@+id/divider"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
                     android:background="@color/greylightest"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="@+id/orderList"
-                    app:layout_constraintHorizontal_bias="0"
                     />
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/channelListLv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="26dp"
                     tools:itemCount="4"
                     tools:orientation="horizontal"
                     tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
